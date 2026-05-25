@@ -87,9 +87,11 @@ layerList = { ...layerList, ["Buildings"]: buildingLayerGroup }
 const TILE_CONFIG = {
     tileSize: 4096,
     minNativeZoom: 4,
-    maxNativeZoom: 4,
+    maxNativeZoom: 6,
     minZoom: 0,
-    maxZoom: 100,
+    maxZoom: 6,
+    zoomOffset: 0,
+    updateWhenZooming: false,
     bounds: [[0, 0], [-1010, 1200]],
     updateWhenIdle: true,
     updateInterval: 500,
@@ -107,6 +109,8 @@ const map = L.map('map', {
     crs: L.CRS.Simple,
     center: [-500, 250],
     zoom: 1,
+    zoomSnap: 1,
+    zoomDelta: 1,
     fadeAnimation: false,
     renderer: streetLabelsRenderer,
     layers: datasets,
@@ -115,7 +119,7 @@ const map = L.map('map', {
     zoomAnimation: !/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
 });
 
-const tileLayer = L.tileLayer('tiles/{z}/{y}/{x}.png', TILE_CONFIG)
+const tileLayer = L.tileLayer('Tiles2/{z}/{y}/{x}.png', TILE_CONFIG)
     .on('tileerror', handleTileError)
     .on('tileloadstart', handleTileLoadStart)
     .addTo(map);
