@@ -172,7 +172,7 @@ var map = L.map('map', {
 }).setView([-300, 500], 0);
 
 // Add tile layer
-var t = L.tileLayer('../tiles/{z}/{y}/{x}.png', {
+var t = L.tileLayer('../Tiles2/{z}/{y}/{x}.png', {
   noWrap: true,
   tileSize: L.point(4096, 4096),
   minNativeZoom: 4,
